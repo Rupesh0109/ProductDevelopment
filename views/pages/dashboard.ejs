@@ -1,0 +1,39 @@
+<%- include('../components/header',{title:"Dasboard-Laundry",auth:auth,data:data,admin:admin}) %>
+
+
+<div id="dashboard" style="padding: 25px;">
+    <h1>DASHBOARD</h1>
+    <h2>Welcome <%= data.name %></h2>
+    <h3> Your Details</h3>
+    <table class="table" id="photos">
+        <tbody>
+      
+    
+    <th scope="row"></th>
+          <%if(!admin){  %>  
+            <td>
+                <div style="height: 25%;width:25%;">
+    <img class="img-fluid" src="https://www.rajalakshmi.org/QRCode/img/<%= data.rollno %>.jpg" alt="IDCARDPhoto"><br></div></td>
+    <% } %>
+          </tr>  
+        </tbody>
+      </table>
+
+    <table class="table" id="data">
+        <tbody>
+            <th scope="row">Name</th>
+            <td><%= data.name %></td>
+          </tr>
+          <tr>
+            <th scope="row">Roll no</th>
+            <td><%= data.rollno %></td>
+          </tr> 
+          <tr>
+            <th scope="row">Unique Qr Code</th>
+            <td><img class="img-fluid" src="<%= data.qrsrc %>" alt="QRCODE"><br></td>
+          </tr> 
+        </tbody>
+      </table>
+    
+</div>
+<%- include('../components/footer') %>
